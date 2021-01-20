@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yu.ssm.mapper.BookMapper">
+    <insert id="add" parameterType="book">
+        insert into book values(#{bookName},#{author});
+    </insert>
+    <delete id="delete" parameterType="java.lang.String">
+        delete from book where bookName=#{bookName};
+    </delete>
+    <update id="update" parameterType="book">
+        update book set author=#{author} where bookName=#{bookName};
+    </update>
+    <select id="query" resultType="book">
+        select * from book;
+    </select>
+    <select id="queryBookName" parameterType="java.lang.String" resultType="book">
+        select * from book where bookName=#{bookName}
+    </select>
+</mapper>
